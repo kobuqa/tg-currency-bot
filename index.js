@@ -1,9 +1,10 @@
-import axios from 'axios';
-import TelegramBot from 'node-telegram-bot-api';
-import { scheduleJob } from 'node-schedule';
-import * as PImage from "pureimage";
-import * as fs from "fs";
-import { load } from 'cheerio';
+const axios = require('axios');
+const TelegramBot = require('node-telegram-bot-api');
+const { scheduleJob } = require('node-schedule');
+const fs = require('fs');
+const PImage = require('pureimage');
+const { load } = require('cheerio')
+
 const token = '6859608057:AAG3EZftJueg75tl_CqCGZ6DvyKSW4q2PQA';
 
 const url = 'https://myfin.by/currency/gomel';
