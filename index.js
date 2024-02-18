@@ -1,10 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 import TelegramBot from 'node-telegram-bot-api';
 import { scheduleJob } from 'node-schedule';
-import * as fs from 'fs';
-import * as PImage from 'pureimage';
+import * as PImage from "pureimage";
+import * as fs from "fs";
 import { load } from 'cheerio';
-
 const token = '6859608057:AAG3EZftJueg75tl_CqCGZ6DvyKSW4q2PQA';
 
 const url = 'https://myfin.by/currency/gomel';
@@ -12,14 +11,14 @@ const ID = -1002024472497;
 
 
 const bot = new TelegramBot(token, { polling: true });
+const path = "out.png";
+var fnt = PImage.registerFont(
+    "ss-m.ttf",
+    "Source Sans Pro",
+);
+fnt.loadSync();
 
 scheduleJob({ second: 10 }, async () => {
-    const path = "out.png";
-    var fnt = PImage.registerFont(
-        "ss-m.ttf",
-        "Source Sans Pro",
-    );
-    fnt.loadSync();
 
     const img1 = PImage.make(1920, 1080);
 
@@ -28,7 +27,7 @@ scheduleJob({ second: 10 }, async () => {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, 1920, 1080);
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#000000";
     ctx.font = "48pt 'Source Sans Pro'";
     ctx.lineWidth = 5;
 
@@ -53,9 +52,7 @@ scheduleJob({ second: 10 }, async () => {
     await PImage.encodePNGToStream(img1, fs.createWriteStream(path))
     bot.sendPhoto(ID, path);
 
-
 })
-
 
 async function getData() {
     try {
