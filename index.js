@@ -49,9 +49,11 @@ scheduleJob({ second: 10, tz: "Europe/Minsk" }, async () => {
         ctx.fillText(String(usdBuy), 800, 50 * (index + 2))
         ctx.fillText(String(usdSell), 1600, 50 * (index + 2))
     })
-    fs.rmSync(path)
     await PImage.encodePNGToStream(img1, fs.createWriteStream(path))
-    bot.sendPhoto(ID, path);
+    await bot.sendPhoto(ID, path);
+
+    fs.rmSync(path)
+
 })
 
 async function getData() {
