@@ -18,8 +18,7 @@ var fnt = PImage.registerFont(
 );
 fnt.loadSync();
 
-// scheduleJob({ hour: 12, minute: 0, tz: "Europe/Minsk" }, async () => {
-scheduleJob({ second: 10, tz: "Europe/Minsk" }, async () => {
+scheduleJob({ hour: 12, tz: "Europe/Minsk" }, async () => {
 
     const img1 = PImage.make(1920, 1080);
 
