@@ -51,7 +51,6 @@ scheduleJob({ hour: 12, minute: 0, tz: "Europe/Minsk" }, async () => {
     fs.rmSync(path)
     await PImage.encodePNGToStream(img1, fs.createWriteStream(path))
     bot.sendPhoto(ID, path);
-
 })
 
 async function getData() {
